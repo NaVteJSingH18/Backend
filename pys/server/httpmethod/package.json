@@ -1,0 +1,17 @@
+{
+  "name": "httpmethod",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "node-modules": "^1.0.1",
+    "url": "^0.11.4"
+  }
+}

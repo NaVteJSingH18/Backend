@@ -1,0 +1,6 @@
+2026-01-28T16:35:46.204Z : GET /signup New req received
+2026-01-28T16:35:46.250Z : GET /favicon.ico New req received
+2026-01-28T17:18:32.283Z : GET /signup New req received
+2026-01-28T17:18:32.337Z : GET /favicon.ico New req received
+2026-01-28T17:18:43.455Z : GET /signup New req received
+2026-01-28T17:18:43.497Z : GET /favicon.ico New req received
