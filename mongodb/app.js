@@ -36,7 +36,7 @@ app.get('/read',async (req,res)=>{
 
 app.get('/delete',async (req,res)=>{
     let users=  await userModel.findOneAndDelete(
-        {uername:"navtej"}
+        {username:"navtej"}
     );
     res.send(users)
 })
