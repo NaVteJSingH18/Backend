@@ -10,8 +10,11 @@
 <body class="bg-zinc-900 min-h-screen flex justify-center p-10 text-white">
 
     <div class="w-[700px]">
+<div class="user-box flex justify-between">
+            <h1 class="text-3xl font-semibold mb-8">All Users</h1>
+        <a class="text-3xl font-semibold mb-8 text-green-400 hover:underline" href="/create/" >Add User</a>
+</div>
 
-        <h1 class="text-3xl font-semibold mb-8">All Users</h1>
 
         <div class="users flex flex-col gap-6">
 
@@ -32,7 +35,7 @@
 
                 <!-- Actions -->
                 <div class="flex gap-4">
-                    <a href="" class="text-blue-400 hover:underline">Edit User</a>
+                    <a href="/edit/<%= user._id%>" class="text-blue-400 ">Edit User</a>
 <a href="/delete/<%= user._id %>" class="text-red-400 hover:underline">
   Delete User
 </a>
