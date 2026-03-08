@@ -47,7 +47,7 @@ app.post('/create', async (req,res)=>{
         email
     })
 res.redirect('/read')
-})
+});
 
 
 
