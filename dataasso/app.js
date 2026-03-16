@@ -26,6 +26,6 @@ app.get("/post/create" , async (req,res)=>{
    let user= await userModel.findOne({_id:"69b304da089c18ec4ee927d8"});
     user.posts.push(post._id);
     await user.save();
-    res.send({post,user})
+    res.send({post,user});
 })
 app.listen(8000, ()=>{"hey This is port 8000"})
