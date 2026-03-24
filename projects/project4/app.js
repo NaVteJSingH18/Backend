@@ -6,7 +6,8 @@ const postModel=require("./models/post")
 const cookieParser =require("cookie-parser")
 const bcrypt=require('bcrypt');
 const jwt = require("jsonwebtoken");
-
+const user = require("./models/user");
+const upload = require("./config/multerconfig")
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
@@ -22,6 +23,33 @@ app.get('/profile',isLoggedIn, async (req,res)=>{
 res.json({ message: "welcome to profile", user });
 })
 
+app.get("/profile/upload",(req,res)=>{
+
+})
+
+app.post("/upload", isLoggedIn, upload.single("image"), async (req, res) => {
+    let user = await userModel.findOne({ email: req.user.email });
+    user.profilepic = req.file.filename;
+    await user.save();
+
+    res.json({
+        message: "Profile picture uploaded successfully",
+        file: req.file.filename
+    });
+});
+
+app.get('/like/:id',isLoggedIn, async (req,res)=>{
+   let post =await postModel.findOne({_id:req.params.id}).populate("user")
+    if(post.likes.indexOf(req.user.userid)===-1) {
+        post.likes.push(req.user.userid)
+    }else{
+        post.likes.splice(post.likes.indexOf(req.user.userid),1);
+    }
+    await post.save()
+    res.redirect("/profile");
+res.json({ message: "liked" ,post});
+})
+
 app.post('/post',isLoggedIn, async (req,res)=>{
    let user =await userModel.findOne({email:req.user.email})
      let {content} = req.body
@@ -30,6 +58,8 @@ app.post('/post',isLoggedIn, async (req,res)=>{
     user:user._id,
     content
 });
+
+
 
 user.posts.push(post._id)
 await user.save()
