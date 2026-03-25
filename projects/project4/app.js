@@ -26,7 +26,7 @@ res.json({ message: "welcome to profile", user });
 app.get("/profile/upload",(req,res)=>{
 
 })
-
+ 
 app.post("/upload", isLoggedIn, upload.single("image"), async (req, res) => {
     let user = await userModel.findOne({ email: req.user.email });
     user.profilepic = req.file.filename;
