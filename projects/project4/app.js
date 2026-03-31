@@ -100,7 +100,7 @@ app.post('/login', async (req,res)=>{
                 res.cookie("token",token)
                 res.status(200).send("you can login")
             }
-                else res.redirect("/login")
+                else res.status(400).send(err.message).redirect("/login")
         })     
 
 })
@@ -125,3 +125,4 @@ function isLoggedIn(req, res, next) {
 }
 
 app.listen(3000)
+
