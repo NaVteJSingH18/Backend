@@ -43,6 +43,7 @@ module.exports.loginUser = async(req,res)=>{
   
       bcrypt.compare(password,user.password,(err,result)=>{ // compare the user_given password with db_stored password
         if(!result) return res.status(400).send("Invalid credentials")
+         
         
         let token = generateToken(user);
         res.cookie("token",token)
@@ -53,3 +54,4 @@ module.exports.loginUser = async(req,res)=>{
   } 
     }
 
+ 
